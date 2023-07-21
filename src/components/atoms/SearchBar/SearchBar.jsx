@@ -1,0 +1,15 @@
+import "./SearchBar.css"
+
+export default function(){
+    return (
+        <div className="search-bar">
+            <input className="search-bar-input" type="search" placeholder="Digite algum filme para pesquisar..."/>
+            <button className="search-bar-button">
+                <svg width="21" height="22" viewBox="0 0 21 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="#1B1B1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M19.35 20.35L15 16" stroke="#1B1B1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+    )
+}

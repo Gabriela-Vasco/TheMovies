@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 1.31rem 2.19rem;
+}
+
+.header h1 {
+    margin: 0;
+    color: #D1FF00;
+    font-size: 2.25rem;
+    font-weight: 500;
+}
+
+.header ul {
+    display: flex;  
+    list-style: none;
+    margin: 0;
+}
+
+.header ul li {
+    margin-left: 3rem;
+    color: #F1F1F1;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
