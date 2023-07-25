@@ -1,12 +1,9 @@
 import "./MovieCard.css"
 
-export default function MovieCard({Title, Year, Rating}){
+export default function MovieCard({Title, Year, Rating, Image}){
     return (
         <div className="movie-card">
-                    {/* <img src=""/> */}
-                    <svg width="263" height="260" viewBox="0 0 263 260" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0H263V260H0V0Z" fill="#8A8A8A"/>
-                    </svg>
+                    <img src={Image}/> 
 
                     <div className="movie-info">
                         <div className="movie-title-year">
@@ -14,9 +11,6 @@ export default function MovieCard({Title, Year, Rating}){
                             <span>{Year}</span>
                         </div>
                         <div className="movie-star">
-                            {/* <svg width="63" height="63" viewBox="0 0 55 63" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M27.5 0L35.9975 20.5757L55 23.8954L41.25 39.9023L44.495 62.5158L27.5 51.8336L10.505 62.5158L13.75 39.9023L0 23.8954L19.0025 20.5757L27.5 0Z" fill="#D1FF00"/>
-                            </svg> */}
                             <span className="movie-star-rating">{Rating}</span>
                         </div>
                         <svg width="23" height="21" viewBox="0 0 23 21" fill="none" xmlns="http://www.w3.org/2000/svg">
