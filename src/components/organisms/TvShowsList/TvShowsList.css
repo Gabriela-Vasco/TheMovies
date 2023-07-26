@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-.movies-list {
+.tvShow-list {
     margin: 9.75rem 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
@@ -12,6 +12,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 5rem;
 }
 
 .buttons button{

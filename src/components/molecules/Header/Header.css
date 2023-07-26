@@ -1,27 +1,30 @@
-.header {
+header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0;
-    padding: 1.31rem 2.19rem;
+    padding: 1.31rem 2rem;
 }
 
-.header h1 {
-    margin: 0;
+.site-logo {
     color: #D1FF00;
     font-size: 2.25rem;
     font-weight: 500;
+    text-decoration: none
 }
 
-.header ul {
-    display: flex;  
-    list-style: none;
-    margin: 0;
-}
-
-.header ul li {
-    margin-left: 3rem;
+.navbar a{
+    padding-right: 1.5rem;
     color: #F1F1F1;
     font-size: 1.5rem;
     font-weight: 400;
+    text-decoration: none;
+}
+
+.navbar a:last-child{
+    padding-right: 0;
+}
+
+.navbar a:hover{
+    color: #9E4FFF;
 }
