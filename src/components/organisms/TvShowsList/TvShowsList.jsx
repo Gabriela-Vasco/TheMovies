@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import MovieCard from "../../molecules/MovieCard/MovieCard";
-import "./TvShowsList.css"
+import '../../../styles/main.scss'
 
 export default function MoviesList() {
     const [tvShows, setTvShows] = useState([]); 
@@ -28,7 +28,7 @@ export default function MoviesList() {
 
     return (
         <div className="tvShow">
-            <div className="tvShow-list">
+            <div className="tvShow content__list">
                 {tvShows.map((tvShow) => (   
                     <MovieCard 
                         key={tvShow.id}
@@ -41,9 +41,9 @@ export default function MoviesList() {
 
             </div> 
             <div className="buttons">
-                <button onClick={handlePrevPage}>Página anterior</button>
-                <span style={{color: "white"}}>{page}</span>
-                <button onClick={handleNextPage}>Próxima página</button>
+                <button onClick={handlePrevPage} className="buttons buttons__button">Página anterior</button>
+                <span style={{color: "white"}} className="buttons buttons__span">{page}</span>
+                <button onClick={handleNextPage}className="buttons buttons__button">Próxima página</button>
             </div>
         </div>
     )

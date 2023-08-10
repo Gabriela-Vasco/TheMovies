@@ -6,18 +6,10 @@ export default function CardDetails(){
     const params = useParams()
     const [movie, setMovie] = useState(null)
 
-    const options = {
-        method: 'GET',
-        headers: {
-          accept: 'application/json',
-          Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MjdjNmExZjQ4NDJlMGEzNzcxODhkNGVlMjkzNTUwOSIsInN1YiI6IjY0Yjk4NGQ4MjdkYjYxMDBhYzNjOTBjOSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CUxuJoAKV4bV1wgianFHRP_2QI5NEaPfwcVhT0IbIJY'
-        }
-      };
-
     useEffect(() => {
   
         async function fetchMovie() { 
-            let response = await  fetch(`https://api.themoviedb.org/3/movie/${params.id}`, options);
+            let response = await  fetch(`https://api.themoviedb.org/3/movie/${params.id}?api_key=427c6a1f4842e0a377188d4ee2935509`);
             json = await response.json();
             setMovie(json);
         }
@@ -35,7 +27,7 @@ export default function CardDetails(){
             <div className="movie-card-details" >
                     {/* <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}/>  */}
                     <div className="movie-star">
-                        <span className="movie-star-rating">{movie.vote_average}</span>
+                        <span className="movie-star-rating">{movie?.vote_average}</span>
                     </div>
                     <div className="movie-info">
                         <div className="movie-title-year">

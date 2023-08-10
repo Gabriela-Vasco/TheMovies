@@ -1,0 +1,62 @@
+@use "../abstracts" as *;
+
+.content-card {
+    width: 15rem;
+    height: 100%;
+    border-radius: 0 0 0.5rem 0.5rem;
+    background: $secondary-color;
+    margin: 0;
+    position: relative;
+
+    &__img {
+        height: 70%;
+        width: 100%;
+    }
+
+    &__info {
+        height: 30%;
+        padding: 1rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__year {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        color: $base-color-dark;
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin: 0;
+        padding-bottom: 0.5rem;
+    }
+
+    
+
+    &__rating {
+        color: $base-color-dark;
+        font-size: 1rem;
+        margin: 0;
+        padding: auto auto;
+    }
+
+    &:hover {
+        transform: scale(1.05);
+        transition: transform 0.5s ease-in-out;
+        cursor: pointer;
+    }
+}
+
+.content-card__star {
+    position: absolute;
+    top: -1.5rem;
+    right: -1.5rem;
+    clip-path: polygon(50% 0%,63.00% 33.00%,98% 35%,70.00% 58.00%,79% 91%,50.00% 72.00%,21% 91%,29.00% 58.00%,2% 35%,37.00% 33.00%);
+    background-color: $primary-color;
+    width: 4rem;
+    height: 4rem;
+    z-index: 1;
+    @include display-center();
+}

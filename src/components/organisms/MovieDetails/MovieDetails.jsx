@@ -1,4 +1,5 @@
-import "./MovieDetails.css"
+import "../../../styles/main.scss"
+
 export default function MovieDetails({Title, Date, Rating, Image, Description, OriginalLanguage, OriginalTitle}) {
 
     return (

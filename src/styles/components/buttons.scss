@@ -1,0 +1,16 @@
+@use "../abstracts" as *;
+
+.buttons {
+    @include display-center();
+    margin-bottom: 5rem;
+
+    &__button{
+        margin: 0 2em;
+        padding: 0.5em 1em;
+        border: none;
+        border-radius: 0.5em;
+        background-color: $primary-color;
+        color: $base-color-dark;
+        @include button();
+    }
+}

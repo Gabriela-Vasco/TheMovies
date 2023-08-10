@@ -1,14 +1,13 @@
 import Checkbox from "../../atoms/Checkbox/Checkbox";
 import SearchBar from "../../atoms/SearchBar/SearchBar";
-import Header from "../../molecules/Header/Header";
 
-import './Home.css'
+import '../../../styles/main.scss'
 
 export default function Home() {
     return (
         <>
-            <div className="main-top">
-                <h1>Filmes Populares</h1>
+            <div className="home">
+                <h1 className="home__title">Filmes Populares</h1>
                 <SearchBar />
                 {/* <Checkbox /> */}
             </div>  

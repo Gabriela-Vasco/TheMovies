@@ -1,0 +1,7 @@
+.content__list {
+    margin: 9.75rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+    grid-gap: 2.5rem;
+    padding: 0 2.5rem;
+}

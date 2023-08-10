@@ -4,7 +4,7 @@ import Home from './components/pages/Home/Home'
 import MoviesList from "../src/components/organisms/MoviesList/MoviesList";
 import TvShowsList from "../src/components/organisms/TvShowsList/TvShowsList";
 import CardDetails from "../src/components/pages/CardDetails/CardDetails";
-import './App.css'
+import './App.scss'
 
 function App() {
   

@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router-dom"
-import "./Header.css"
+import "../../../styles/main.scss"
 
 export default function Header() {
     const activeStyles = {
@@ -8,9 +8,9 @@ export default function Header() {
     }
 
     return (
-        <header>
-            <Link className="site-logo" to="/">the movies</Link>
-            <nav className="navbar">
+        <header className="header">
+            <Link className="header header__logo" to="/">the movies</Link>
+            <nav className="header header__navbar">
                 <NavLink 
                     to="/filmes"
                     style={({isActive}) => isActive ? activeStyles : null}

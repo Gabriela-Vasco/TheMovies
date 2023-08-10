@@ -1,0 +1,20 @@
+@use "./_variables.scss" as *;
+
+@mixin title-h1($color) {
+    color: $color;
+    font-size: 1.875rem;
+    font-weight: 400;
+}
+
+@mixin display-center($direction: row){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: $direction;
+}
+
+@mixin button(){
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+}
