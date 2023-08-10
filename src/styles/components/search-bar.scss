@@ -1,0 +1,43 @@
+@use "../abstracts" as *;
+
+.search-bar {
+    @include display-center();
+    margin: 0;
+
+    &__input {
+        width: 35.625rem;
+        height: 4rem;
+        border-radius: 0.5rem 0 0 0.5rem;
+        border: none;
+        padding: 1.62rem 1.5rem;
+        background: $base-color-neutral;
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        &::placeholder {
+            color: $base-color-dark;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        &:focus {
+            outline: none;
+        }
+    }
+
+    &__button {
+        width: 4rem;
+        height: 4rem;
+        border: none;
+        border-radius: 0 0.5rem 0.5rem 0;
+        background: $base-color-neutral;
+        cursor: pointer;
+
+        &:hover {
+            background: darken($color: $base-color-neutral, $amount: 10%);
+        }
+    }
+}
