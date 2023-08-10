@@ -12,10 +12,6 @@
         padding: 1.62rem 1.5rem;
         background: $base-color-neutral;
 
-        &:hover {
-            cursor: pointer;
-        }
-
         &::placeholder {
             color: $base-color-dark;
             font-family: 'Montserrat', sans-serif;

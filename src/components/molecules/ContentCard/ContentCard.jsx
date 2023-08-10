@@ -1,6 +1,6 @@
 import "../../../styles/main.scss"
 
-export default function MovieCard({Title, Year, Rating, Image}){
+export default function ContentCard({Title, Year, Rating, Image}){
     
     return (
         <div className="content-card">

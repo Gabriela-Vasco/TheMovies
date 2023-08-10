@@ -1,17 +1,11 @@
 import { useEffect, useState } from "react";
-import MovieCard from "../../molecules/MovieCard/MovieCard";
+import useShowsData from "../../../hooks/useShowsData";
+import ContentCard from "../../molecules/ContentCard/ContentCard";
 import '../../../styles/main.scss'
 
 export default function MoviesList() {
-    const [tvShows, setTvShows] = useState([]); 
+    const { data, isLoading } = useShowsData();
     const [page, setPage] = useState(1); 
-
-     const tvShowsList = async () => {
-         const response = await fetch(`
-         https://api.themoviedb.org/3/tv/popular?api_key=427c6a1f4842e0a377188d4ee2935509&language=pt-BR&page=${page}`);
-         const data = await response.json();
-         setTvShows(data.results)
-    }
 
     const handlePrevPage = () => {
         page > 1 ? setPage(page - 1) : null
@@ -21,16 +15,12 @@ export default function MoviesList() {
         setPage(page + 1)
     }
 
-    useEffect(() => {
-        tvShowsList();
-    }, [page])
-
 
     return (
         <div className="tvShow">
             <div className="tvShow content__list">
-                {tvShows.map((tvShow) => (   
-                    <MovieCard 
+                {data?.map((tvShow) => (   
+                    <ContentCard 
                         key={tvShow.id}
                         Image={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}` }
                         Title={tvShow.name}
@@ -45,6 +35,8 @@ export default function MoviesList() {
                 <span style={{color: "white"}} className="buttons buttons__span">{page}</span>
                 <button onClick={handleNextPage}className="buttons buttons__button">Próxima página</button>
             </div>
+
+            {isLoading && <p>Carregando...</p>}
         </div>
     )
 }
