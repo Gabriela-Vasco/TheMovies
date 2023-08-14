@@ -1,0 +1,24 @@
+@use "../abstracts" as *;
+.movie-details {
+    color: $base-color-light;
+    display: flex;
+    padding: 5rem;
+
+    &__info {
+        padding: 5em;
+    }
+
+    &__info {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        color: $primary-color;
+        font-size: 2em;
+    }
+
+    &__paragraph {
+        font-size: 1.1em;
+    }
+}

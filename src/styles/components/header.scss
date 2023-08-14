@@ -20,14 +20,16 @@
             font-size: 1.5rem;
             font-weight: 400;
             text-decoration: none;
+
+            &:last-child{
+                padding-right: 0;
+            }
+            
+            &:hover{
+                color: $secondary-color;
+            }
         }
     
-        &:last-child{
-            padding-right: 0;
-        }
     
-        &:hover{
-            color: $secondary-color;
-        }
     }
 }

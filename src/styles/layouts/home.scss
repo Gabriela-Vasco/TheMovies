@@ -1,11 +1,6 @@
 @use "../abstracts" as *;
-
 .home {
     @include display-center(column);
     margin: 0;
     padding-top: 6rem;
-
-    &__title {
-        @include title-h1($base-color-light);
-    }
 }

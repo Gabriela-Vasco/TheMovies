@@ -9,8 +9,8 @@ export default function Header() {
 
     return (
         <header className="header">
-            <Link className="header header__logo" to="/">the movies</Link>
-            <nav className="header header__navbar">
+            <Link className="header__logo" to="/">the movies</Link>
+            <nav className="header__navbar">
                 <NavLink 
                     to="/filmes"
                     style={({isActive}) => isActive ? activeStyles : null}

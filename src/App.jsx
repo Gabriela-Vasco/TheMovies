@@ -3,8 +3,8 @@ import Layout from './components/templates/Layout/Layout'
 import Home from './components/pages/Home/Home'
 import MoviesList from "../src/components/organisms/MoviesList/MoviesList";
 import TvShowsList from "../src/components/organisms/TvShowsList/TvShowsList";
-import CardDetails from "../src/components/pages/CardDetails/CardDetails";
-import './App.scss'
+import MovieDetails from "../src/components/pages/MovieDetails/MovieDetails";
+import './App.css'
 
 function App() {
   
@@ -15,7 +15,7 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="filmes" element={<MoviesList /> } />
-          <Route path="filmes/:id" element={<CardDetails />} />
+          <Route path="filmes/:id" element={<MovieDetails />} />
           <Route path="series" element={<TvShowsList /> } />
         </Route>
       </Routes>

@@ -2,11 +2,13 @@
 
 * {
     box-sizing: border-box;
+    -ms-overflow-style: none;
 }
 
 html, body {
     margin: 0;
     padding: 0;
+    -ms-overflow-style: none;
 }
 
 body {
@@ -14,5 +16,5 @@ body {
     font-family: 'Montserrat', sans-serif;
     width: 100vw;
     min-height: 100vh;
-    -ms-overflow-style: none;
+    
 }
