@@ -3,15 +3,8 @@ import { Link, useSearchParams } from "react-router-dom";
 import Select from 'react-select';
 import axios from 'axios';
 import ContentCard from "../../molecules/ContentCard/ContentCard";
-
-
 import '../../../styles/main.scss'
 
-const options = [
-    { value: 'popularity', label: 'Filmes mais populares' },
-    { value: 'cinema', label: 'Últimos lançamentos nos cinemas' },
-    { value: 'vote_average', label: 'Melhor avaliados' },
-  ];  
 
 export default function MoviesList() {
     const [searchParams] = useSearchParams()
@@ -19,6 +12,13 @@ export default function MoviesList() {
     const [movies, setMovies] = useState([]);
     const [selectedOption, setSelectedOption] = useState(null);
     const [genre, setGenre] = useState("")
+    
+    const options = [
+        { value: 'popularity', label: 'Filmes mais populares' },
+        { value: 'cinema', label: 'Últimos lançamentos nos cinemas' },
+        { value: 'vote_average', label: 'Melhor avaliados' },
+      ];  
+
 
     useEffect(() => {
         if(!selectedOption){
