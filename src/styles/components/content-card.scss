@@ -1,7 +1,7 @@
 @use "../abstracts" as *;
 
 .content-card {
-    width: 15rem;
+    width: 13rem;
     height: 100%;
     border-radius: 0 0 0.5rem 0.5rem;
     background: $secondary-color;
@@ -27,7 +27,7 @@
 
     &__title {
         color: $base-color-dark;
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         font-weight: 500;
         margin: 0;
         padding-bottom: 0.5rem;

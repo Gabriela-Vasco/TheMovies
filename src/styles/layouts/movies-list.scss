@@ -4,6 +4,7 @@
     .title__container {
         @include display-center();
         background-color: $secondary-color;
+        margin: 3em 0;
 
         title {
             @include title-h1($base-color-dark);
@@ -25,7 +26,7 @@
                 @include display-center(column);
     
                 .filter__title {
-                    margin-bottom: 0;
+                    margin: 2em 0 0;
                 }
     
                 .buttons__button{
@@ -42,121 +43,11 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             grid-gap: 2.5rem;
-            padding: 2rem 0 0 2rem;
+            padding: 4rem;
         }
     }
 }
 
-select {
-    font-family: 'Montserrat', sans-serif;
-    background: $base-color-light;
-    border: 0;
-    font-size: 0.9em;
-    padding: 0.7em 3.5em 0.7em 0.7em;
-    border: none;
-
-    &::part(listbox){
-        padding: .5em;
-        margin: .5em 0 0 .2em;
-    }
-
-    &::part(button){
-        background: $base-color-light;
-        border: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    &::part(arrow){
-        display: none;
-    }
-
-    &:focus {
-        outline: none;
-    }
-
-    &:hover {
-        cursor: pointer;
-    }
-
-    option {
-        background: $base-color-light;
-        border: none;
-        padding: 0.5em;
-        margin: 0;
-        color: $base-color-dark;
-    }
-
-    option:hover {
-        background: $secondary-color;
-        color: $base-color-light;
-    }
-
-    option:checked {
-        background: $secondary-color;
-        color: $base-color-light;
-    }
-
-    option:active {
-        background: $secondary-color;
-        color: $base-color-light;
-    }
-
-    option:disabled {
-        background: $base-color-light;
-        color: $base-color-dark;
-    }
-
-    *:hover{
-        background: $secondary-color;
-    }
-}
-
-
-.custom-select{
-    position: relative;
-}
-
-.custom-arrow {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
-    background: $secondary-color;
-    height: 100%;
-    width: 3rem;
-    pointer-events: none;
-    cursor: pointer;
-
-    &::before,
-    &::after {
-        --size: 0.5em;
-
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 0;
-
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        cursor: pointer;
-    }
-
-    &::before {
-        border-left: var(--size) solid transparent;
-        border-right: var(--size) solid transparent;
-        border-bottom: var(--size) solid $primary-color;
-        top: 35%;
-    }
-
-    &::after {
-        border-left: var(--size) solid transparent;
-        border-right: var(--size) solid transparent;
-        border-top: var(--size) solid $primary-color;
-        top: 65%;
-    }
-}
 
 
 
