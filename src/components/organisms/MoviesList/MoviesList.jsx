@@ -1,15 +1,28 @@
 import { useEffect, useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useQuery, useQueryClient,} from "@tanstack/react-query";
+import Select from 'react-select';
 import axios from 'axios';
 import ContentCard from "../../molecules/ContentCard/ContentCard";
 
+
 import '../../../styles/main.scss'
+
+const options = [
+    { value: 'popularity.asc', label: 'Popularidade (crescente)' },
+    { value: 'release_date.desc', label: 'Data de lançamento (decrescente)' },
+    { value: 'release_date.asc', label: 'Data de lançamento (crescente)' },
+    { value: 'vote_average.desc', label: 'Avaliação dos usuários (decrescente)' },
+    { value: 'vote_average.asc', label: 'Avaliação dos usuários (crescente)' },
+    { value: 'original_title.asc', label: 'Título (A-Z)' },
+    { value: 'original_title.desc', label: 'Título (Z-A)' },
+  ];
 
 export default function MoviesList() {
     const queryClient = useQueryClient()
     const [searchParams, setSearchParams] = useSearchParams()
     const [page, setPage] = useState(1); 
+    const [selectedOption, setSelectedOption] = useState(null);
 
     // const genreFilter = searchParams.get("genre_ids")
     // console.log(genreFilter)
@@ -59,6 +72,7 @@ export default function MoviesList() {
       }, [data, isPreviousData, page, queryClient])
 
 
+
     return (
         <div className="movies">
             <div className="title__container">
@@ -70,16 +84,12 @@ export default function MoviesList() {
                     <div className="aside__sort">
                         <h3 className="sort__title">Ordenar por</h3>
                         <div className="custom-select">
-                            <select className="sort__select">
-                                <option className="sort__option" value="popularity.desc">Popularidade (decrescente)</option>
-                                <option className="sort__option" value="popularity.asc">Popularidade (crescente)</option>
-                                <option className="sort__option" value="release_date.desc">Data de lançamento (decrescente)</option>
-                                <option className="sort__option" value="release_date.asc">Data de lançamento (crescente)</option>
-                                <option className="sort__option" value="vote_average.desc">Avaliação dos usuários (decrescente)</option>
-                                <option className="sort__option" value="vote_average.asc">Avaliação dos usuários (crescente)</option>
-                                <option className="sort__option" value="original_title.asc">Título (A-Z)</option>
-                                <option className="sort__option" value="original_title.desc">Título (Z-A)</option>
-                            </select>
+                            <Select
+                                defaultValue={selectedOption}
+                                onChange={setSelectedOption}
+                                options={options}
+                            />
+                            <span className="custom-arrow"></span>
                         </div>
                     </div>
                     <div className="aside__filter">
