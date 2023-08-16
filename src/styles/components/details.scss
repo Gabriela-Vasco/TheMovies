@@ -1,5 +1,5 @@
 @use "../abstracts" as *;
-.movie-details {
+.details {
     color: $base-color-light;
     display: flex;
     padding: 5rem;
@@ -20,5 +20,18 @@
 
     &__paragraph {
         font-size: 1.1em;
+    }
+
+    &__genres {
+        display: flex;
+        width: 100%;
+
+        .details__genre {
+            background-color: $secondary-color;
+            border-radius: 2em;
+            padding: 1em;
+            margin-right: 1em;
+        }
+        
     }
 }

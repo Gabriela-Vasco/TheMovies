@@ -4,6 +4,8 @@ import axios from 'axios';
 import ContentCard from "../../molecules/ContentCard/ContentCard";
 import '../../../styles/main.scss'
 
+const apiKey = import.meta.env.VITE_API_KEY;
+
 export default function TvShowsList() {
     const [page, setPage] = useState(1);
     const [tvShow, setTvShow] = useState([]);
@@ -32,16 +34,12 @@ export default function TvShowsList() {
         if(selectedOption?.value === 'popularity'){
             fetchShowsData(page)
         }
-    }, [page, selectedOption])
 
-    useEffect(() => {
-        async function handleGenre() {
-            const { data } = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=427c6a1f4842e0a377188d4ee2935509&language=pt-BR&page=${page}`)
-            const filteredShows = data.results.filter(show => show.genre_ids.includes(genre))
-            setTvShow(filteredShows)
+        if(genre !== "") {
+            handleGenre()
         }
-        handleGenre()
-        },[genre])
+
+    }, [page, selectedOption, genre])
 
     const handlePrevPage = () => {
         page > 1 ? setPage(page - 1) : null
@@ -51,20 +49,26 @@ export default function TvShowsList() {
         setPage(page + 1)
     }
 
+    async function handleGenre() {
+        const { data } = await axios.get(`https://api.themoviedb.org/3/tv/popular?${apiKey}&language=pt-BR&page=${page}`)
+        const filteredShows = data.results.filter(show => show.genre_ids.includes(genre))
+        setTvShow(filteredShows)
+    }
+
     async function fetchShowsData(page) {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/tv/popular?api_key=427c6a1f4842e0a377188d4ee2935509&language=pt-BR&page=${page}`)
+        const { data } = await axios.get(`https://api.themoviedb.org/3/tv/popular?${apiKey}&language=pt-BR&page=${page}`)
         setTvShow(data?.results);
         return tvShow;
     }
 
     async function fetchAiringToday(page) {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/tv/airing_today?api_key=427c6a1f4842e0a377188d4ee2935509&language=pt-BR&page=${page}`)
+        const { data } = await axios.get(`https://api.themoviedb.org/3/tv/airing_today?${apiKey}&language=pt-BR&page=${page}`)
         setTvShow(data?.results);
         return tvShow;
     }
 
     async function fetchTopRated(page) {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/tv/top_rated?api_key=427c6a1f4842e0a377188d4ee2935509&language=pt-BR&page=${page}`)
+        const { data } = await axios.get(`https://api.themoviedb.org/3/tv/top_rated?${apiKey}&language=pt-BR&page=${page}`)
         setTvShow(data?.results);
         return tvShow;
     }
@@ -92,20 +96,35 @@ export default function TvShowsList() {
                     <div className="aside__filter">
                         <h3 className="filter__title">Filtrar por</h3>
                         <h4 className="filter__subtitle">Gêneros</h4>
-                            <button className="buttons__button" onClick={() => setGenre(10759)}>Ação e Aventura</button>
-                            <button className="buttons__button" onClick={() => setGenre(10762)}>Infantil</button>
-                            <button className="buttons__button" onClick={() => setGenre(16)}>Animação</button>
-                            <button className="buttons__button" onClick={() => setGenre(35)}>Comédia</button>
-                            <button className="buttons__button" onClick={() => setGenre(80)}>Crime</button>
-                            <button className="buttons__button" onClick={() => setGenre(99)}>Documentário</button>
-                            <button className="buttons__button" onClick={() => setGenre(18)}>Drama</button>
-                            <button className="buttons__button" onClick={() => setGenre(10766)}>Novela</button>
-                            <button className="buttons__button" onClick={() => setGenre(9648)}>Mistério</button>
-                            <button className="buttons__button" onClick={() => setGenre(10765)}>Ficção científica e Fantasia</button>
-                            <button className="buttons__button" onClick={() => setGenre(10764)}>Reality Shows</button>
-                            <button className="buttons__button" onClick={() => setGenre(10767)}>Talk Show</button>
-                            <button className="buttons__button" onClick={() => setGenre(10768)}>Guerra e Política</button>
-                            <button className="buttons__button" onClick={() => setGenre(37)}>Faroeste</button>
+                            <button className={genre === 10759 ? "buttons__button--purple" : "buttons__button"} 
+                            onClick={() => setGenre(10759)}>Ação e Aventura</button>
+                            <button className={genre === 10762 ? "buttons__button--purple" : "buttons__button"} 
+                            onClick={() => setGenre(10762)}>Infantil</button>
+                            <button className={genre === 16 ? "buttons__button--purple" : "buttons__button"} 
+                            onClick={() => setGenre(16)}>Animação</button>
+                            <button className={genre === 35 ? "buttons__button--purple" : "buttons__button"}
+                            onClick={() => setGenre(35)}>Comédia</button>
+                            <button className={genre === 80 ? "buttons__button--purple" : "buttons__button"}
+                            onClick={() => setGenre(80)}>Crime</button>
+                            <button className={genre === 99 ? "buttons__button--purple" : "buttons__button"} 
+                            onClick={() => setGenre(99)}>Documentário</button>
+                            <button className={genre === 18 ? "buttons__button--purple" : "buttons__button"}
+                            onClick={() => setGenre(18)}>Drama</button>
+                            <button className={genre === 10766 ? "buttons__button--purple" : "buttons__button"}
+                            onClick={() => setGenre(10766)}>Novela</button>
+                            <button className={genre === 9648 ? "buttons__button--purple" : "buttons__button"}
+                            onClick={() => setGenre(9648)}>Mistério</button>
+                            <button className={genre === 10765 ? "buttons__button--purple" : "buttons__button"}
+                            onClick={() => setGenre(10765)}>Ficção científica e Fantasia</button>
+                            <button className={genre === 10764 ? "buttons__button--purple" : "buttons__button"}
+                            onClick={() => setGenre(10764)}>Reality Shows</button>
+                            <button className={genre === 10767 ? "buttons__button--purple" : "buttons__button"}
+                            onClick={() => setGenre(10767)}>Talk Show</button>
+                            <button className={genre === 10768 ? "buttons__button--purple" : "buttons__button"}
+                            onClick={() => setGenre(10768)}>Guerra e Política</button>
+                            <button className={genre === 37 ? "buttons__button--purple" : "buttons__button"}
+                            onClick={() => setGenre(37)}>Faroeste</button>
+                            <button className="buttons__button-clear" onClick={() => setGenre("")}>Limpar filtro</button>
                     </div>
                 </aside>
                 <div className="tvShow content__list">

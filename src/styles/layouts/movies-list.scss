@@ -1,16 +1,16 @@
 @use "../abstracts" as *;
 
-.movies {
-    .title__container {
-        @include display-center();
-        background-color: $secondary-color;
-        margin: 3em 0;
+.title__container {
+    @include display-center();
+    background-color: $secondary-color;
+    margin: 3em 0;
 
-        title {
-            @include title-h1($base-color-dark);
-        }
+    title {
+        @include title-h1($base-color-dark);
     }
+}
 
+.movies {
     &__container{
         display: grid;
         grid-template-columns: 25% 75%;
