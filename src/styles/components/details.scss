@@ -1,25 +1,64 @@
 @use "../abstracts" as *;
+
+.link {
+    display: flex;
+    text-decoration: none;
+    color: $base-color-light;
+    width: 100%;
+    padding: 1em 0 0 2em;
+    cursor: pointer;
+    margin: 0;
+
+    .icon{
+        font-size: 1.5em;
+        margin-right: 0.5em;
+    }
+
+}
+
 .details {
     color: $base-color-light;
     display: flex;
-    padding: 5rem;
+    padding: 0 5rem;
 
-    &__info {
-        padding: 5em;
+
+    &__img {
+        margin-top: 5rem;
+        width: 30%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 1em;
+        box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
     }
 
     &__info {
-        display: flex;
-        flex-direction: column;
+        padding: 3em;
+    }
+
+    .info-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
     }
 
     &__title {
         color: $primary-color;
         font-size: 2em;
+        margin-bottom: 0.5em;
+    }
+
+    &__tagline {
+        font-size: 1.17em;
+        margin-bottom: 0.5em;
     }
 
     &__paragraph {
         font-size: 1.1em;
+    }
+
+    .icon {
+        color: $secondary-color;
+        margin-right: 0.5em;
+        font-size: 1.15em;
     }
 
     &__genres {
@@ -28,7 +67,7 @@
 
         .details__genre {
             background-color: $secondary-color;
-            border-radius: 2em;
+            border-radius: 1.8em;
             padding: 1em;
             margin-right: 1em;
         }

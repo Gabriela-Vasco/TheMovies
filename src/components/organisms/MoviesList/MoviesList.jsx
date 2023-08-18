@@ -87,7 +87,7 @@ export default function MoviesList() {
                 <h1 className="title">{selectedOption ? selectedOption.label : "Filmes mais populares"}</h1>
             </div>
             
-            <div className="movies__container">
+            <div className="list__container">
                 <aside className="container__aside">
                     <div className="aside__sort">
                         <h3 className="sort__title">Ordenar por</h3>
@@ -144,25 +144,26 @@ export default function MoviesList() {
                             <button className="buttons__button--purple" onClick={() => setGenre("")}>Limpar filtro</button>
                     </div>
                 </aside>
-            <div className="container__list">
-                {movies?.map(movie => (
-                <Link key={movie.id}
-                    to={`/filmes/${movie.id}`} 
-                    state={{ search: `?${searchParams.toString()}` }}
-                    style={{ textDecoration: 'none', display: 'unset'}}
-                >  
-                    <ContentCard 
-                        key={movie.id}
-                        Image={`https://image.tmdb.org/t/p/w500${movie.poster_path}` }
-                        Title={movie.title}
-                        Year={(movie.release_date).slice(0,4)}
-                        Rating={movie.vote_average}
-                    />
-                </Link>
-            ))}
-            </div> 
-
+                
+                <div className="container__elements">
+                    {movies?.map(movie => (
+                    <Link key={movie.id}
+                        to={`/filmes/${movie.id}`} 
+                        state={{ search: `?${searchParams.toString()}` }}
+                        style={{ textDecoration: 'none', display: 'unset'}}
+                    >  
+                        <ContentCard 
+                            key={movie.id}
+                            Image={`https://image.tmdb.org/t/p/w500${movie.poster_path}` }
+                            Title={movie.title}
+                            Year={(movie.release_date).slice(0,4)}
+                            Rating={movie.vote_average}
+                        />
+                    </Link>
+                ))}
+                </div> 
             </div>
+
             <div className="buttons">
                 <button onClick={handlePrevPage} className="buttons buttons__button">Página anterior</button>
                 <span style={{color: "white"}} className="buttons buttons__span">{page}</span>

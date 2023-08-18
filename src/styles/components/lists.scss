@@ -1,8 +1,50 @@
-.content__list {
-    margin: 9.75rem 0;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-    grid-auto-rows: auto ;
-    grid-gap: 2.5rem;
-    padding: 0 2.5rem;
+@use "../abstracts" as *;
+
+.title__container {
+    @include display-center();
+    background-color: $secondary-color;
+    margin: 3em 0;
+
+    title {
+        @include title-h1($base-color-dark);
+    }
+}
+
+.list {
+    &__container{
+        display: grid;
+        grid-template-columns: 25% 75%;
+
+        .container__elements {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            grid-gap: 2.5rem;
+            padding: 4rem;
+        }
+
+        .container__aside {
+            color: $secondary-color;
+            padding: 2em;
+
+            .aside__sort {
+                @include display-center(column);
+            }
+            .aside__filter {
+                @include display-center(column);
+    
+                .filter__title {
+                    margin: 2em 0 0;
+                }
+    
+                .buttons__button{
+                    margin-top: 1em;
+
+                    &--active {
+                        background-color: $secondary-color;
+                        color: $base-color-light;
+                    }
+                }
+            }
+        }
+    }
 }

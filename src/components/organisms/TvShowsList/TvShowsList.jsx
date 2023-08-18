@@ -75,12 +75,12 @@ export default function TvShowsList() {
 
 
     return (
-        <div className="tvShow">
+        <div className="list">
             <div className="title__container">
                 <h1 className="title">{selectedOption ? selectedOption.label : "Séries mais populares"}</h1>
             </div>
 
-            <div className="movies__container">
+            <div className="list__container">
             <aside className="container__aside">
                     <div className="aside__sort">
                         <h3 className="sort__title">Ordenar por</h3>
@@ -127,7 +127,7 @@ export default function TvShowsList() {
                             <button className="buttons__button-clear" onClick={() => setGenre("")}>Limpar filtro</button>
                     </div>
                 </aside>
-                <div className="tvShow content__list">
+                <div className="container__elements">
                     {tvShow?.map((tvShow) => (   
                         <ContentCard 
                             key={tvShow.id}
