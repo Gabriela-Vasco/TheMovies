@@ -1,0 +1,35 @@
+@use "../abstracts" as *;
+
+.itens-wrapper {
+  padding: 5rem 0;
+  width: 100%;
+  cursor: pointer;
+  overflow-x: hidden;
+  
+  .itens {
+    display: flex;
+    justify-content: center;
+    
+    .item {
+      width: 10%;
+
+      img { 
+        border-radius: 2rem;
+        height: 100%;
+        filter: blur(5px);
+        filter: brightness(0.7);
+
+      }
+    }
+
+    .item.active {
+      width: 40%;
+
+      img {
+        filter: blur(0);
+        filter: brightness(1);
+      }
+    }
+  }
+  
+}

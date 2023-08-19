@@ -1,4 +1,5 @@
 import { NavLink, Link } from "react-router-dom"
+import SearchBar from "../../atoms/SearchBar/SearchBar";
 import "../../../styles/main.scss"
 
 export default function Header() {
@@ -10,6 +11,7 @@ export default function Header() {
     return (
         <header className="header">
             <Link className="header__logo" to="/">the movies</Link>
+            <SearchBar/>
             <nav className="header__navbar">
                 <NavLink 
                     to="/filmes"

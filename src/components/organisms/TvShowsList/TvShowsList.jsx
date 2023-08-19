@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 import Select from 'react-select';
 import axios from 'axios';
 import ContentCard from "../../molecules/ContentCard/ContentCard";
@@ -7,6 +8,7 @@ import '../../../styles/main.scss'
 const apiKey = import.meta.env.VITE_API_KEY;
 
 export default function TvShowsList() {
+    const [searchParams] = useSearchParams();
     const [page, setPage] = useState(1);
     const [tvShow, setTvShow] = useState([]);
     const [selectedOption, setSelectedOption] = useState(null);
@@ -124,11 +126,16 @@ export default function TvShowsList() {
                             onClick={() => setGenre(10768)}>Guerra e Política</button>
                             <button className={genre === 37 ? "buttons__button--purple" : "buttons__button"}
                             onClick={() => setGenre(37)}>Faroeste</button>
-                            <button className="buttons__button-clear" onClick={() => setGenre("")}>Limpar filtro</button>
+                            <button className="buttons__button--purple" onClick={() => setGenre("")}>Limpar filtro</button>
                     </div>
                 </aside>
                 <div className="container__elements">
                     {tvShow?.map((tvShow) => (   
+                    <Link key={tvShow.id}
+                        to={`/series/${tvShow.id}`} 
+                        state={{ search: `?${searchParams.toString()}` }}
+                        style={{ textDecoration: 'none', display: 'unset'}}
+                    >  
                         <ContentCard 
                             key={tvShow.id}
                             Image={`https://image.tmdb.org/t/p/w500${tvShow.poster_path}` }
@@ -136,6 +143,7 @@ export default function TvShowsList() {
                             Year={(tvShow.first_air_date).slice(0,4)}
                             Rating={tvShow.vote_average}
                         />
+                    </Link>
                     ))}
                 </div> 
             </div>

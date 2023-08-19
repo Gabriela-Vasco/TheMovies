@@ -5,6 +5,7 @@ import MoviesList from "../src/components/organisms/MoviesList/MoviesList";
 import TvShowsList from "../src/components/organisms/TvShowsList/TvShowsList";
 import MovieDetails from "../src/components/pages/MovieDetails/MovieDetails";
 import './App.css'
+import TvShowDetails from "./components/pages/TvShowDetails/TvShowDetails";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
           <Route path="filmes" element={<MoviesList /> } />
           <Route path="filmes/:id" element={<MovieDetails />} />
           <Route path="series" element={<TvShowsList /> } />
+          <Route path="series/:id" element={<TvShowDetails /> } />
         </Route>
       </Routes>
     </BrowserRouter>

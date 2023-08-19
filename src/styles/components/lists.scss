@@ -14,12 +14,14 @@
     &__container{
         display: grid;
         grid-template-columns: 25% 75%;
+       
 
         .container__elements {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             grid-gap: 2.5rem;
             padding: 4rem;
+            width: 100vw;
         }
 
         .container__aside {

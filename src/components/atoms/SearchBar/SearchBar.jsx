@@ -10,11 +10,9 @@ export default function SearchBar(){
         e.preventDefault()
         
         if(!search) return
-        
         navigate(`/search?q=${search}`)
         setSearch("")
     }
-
 
     return (
         <div >
@@ -22,7 +20,7 @@ export default function SearchBar(){
                 <input 
                     className="search-bar search-bar__input" 
                     type="search" 
-                    placeholder="Digite algum filme para pesquisar..." 
+                    placeholder={`Digite para pesquisar...`}
                     onChange={(e) => setSearch(e.target.value)}
                     value={search}
                 />

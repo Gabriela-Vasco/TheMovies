@@ -1,9 +1,36 @@
 @use "../abstracts" as *;
+@import url('https://fonts.googleapis.com/css2?family=Bad+Script&display=swap');
 
-.home {
-    margin: 0;
-    padding-top: 6rem;
-    width: 100%;
-    height: 100vh;
-    overflow: hidden;
+main {
+    overflow-x: hidden;
+ }
+
+.home__container {
+    display: grid;
+
+    .container__elements {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        grid-gap: 2.5rem;
+        padding: 4rem;
+        width: 100%;
+    }
 }
+
+.search-results__query {
+     background-color: $primary-color;
+ }
+
+ .home__title{
+        padding-top: 2rem;
+        color: $base-color-light;
+        font-size: 2.5rem;
+        position: relative;
+
+        h3 {
+            font-weight: 700;
+            padding: 2rem 2rem ;
+            margin: 0;
+            text-align: center        
+        }
+ }
