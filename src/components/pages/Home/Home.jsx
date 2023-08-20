@@ -68,7 +68,7 @@ export default function Home() {
                     <div className="title__container">
                         <h3 className="list__title">Séries</h3>
                     </div>
-                    <div className="list__container" >
+                    <div className="home__container" >
                         <div className="container__elements">
                             {tvShows?.map(show => (
                                 <Link key={show.id}

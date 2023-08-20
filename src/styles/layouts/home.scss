@@ -33,3 +33,12 @@ main {
             text-align: center        
         }
  }
+
+ @include mediaQuery(768px){
+    .home__title{
+        h3 {
+            font-size: 2rem;
+            padding: 8rem 0 0;
+        }
+    }
+ }

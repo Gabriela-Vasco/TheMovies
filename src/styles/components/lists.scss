@@ -50,3 +50,37 @@
         }
     }
 }
+
+@include mediaQuery(768px){
+    .list {
+        &__container{
+            grid-template-columns: 15% 85%;
+            margin: 0;
+            padding: 0;
+            grid-gap: 6em;
+            width: 40%;
+            
+
+            .container__elements {
+                grid-template-columns: 20% 20%;
+                grid-gap: 2em 6em;
+                padding: 2.5em 0 0 6em;
+            }
+
+            .container__aside {
+                padding-left: 8em;
+                width: 100%;
+
+            }
+        }
+        
+    }
+
+    .home__container {
+        padding-left: 3em;
+        .container__elements {
+           justify-content: center;
+
+        }
+    }
+ }

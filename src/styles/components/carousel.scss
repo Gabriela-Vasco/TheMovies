@@ -2,9 +2,7 @@
 
 .itens-wrapper {
   padding: 5rem 0;
-  border-radius: 5rem;
   width: 100%;
-  cursor: pointer;
   overflow-x: hidden;
   
   .itens {
@@ -20,5 +18,12 @@
         height: 100%;
       }
     }
+  }
+}
+
+@include mediaQuery(768px){
+  .itens-wrapper {
+    width: 79rem;
+    padding: 10rem 0;
   }
 }

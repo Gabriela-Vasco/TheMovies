@@ -48,3 +48,11 @@
       top: 65%;
   }
 }
+
+@include mediaQuery(768px){
+  .custom-select{
+    &__select {
+      width: 10rem;
+    }
+  }
+}

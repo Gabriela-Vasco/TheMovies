@@ -33,7 +33,16 @@
                 color: $secondary-color;
             }
         }
-    
-    
     }
 }
+
+@include mediaQuery(768px){
+    .header {
+        font-size: 1.5rem;
+        margin: 1.5rem 0 0 0;
+
+        &__logo {
+            font-size: 1.5rem
+        }
+    }
+ }

@@ -60,3 +60,11 @@
     z-index: 1;
     @include display-center();
 }
+
+ 
+@include mediaQuery(768px){
+    .content-card {
+        scale: 0.8;
+        padding: 0;
+    }
+ }

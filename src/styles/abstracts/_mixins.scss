@@ -18,3 +18,9 @@
     font-weight: bold;
     cursor: pointer;
 }
+
+@mixin mediaQuery($size){
+    @media (max-width: $size){
+        @content;
+    }
+}
