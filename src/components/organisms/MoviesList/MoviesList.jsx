@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import Select from 'react-select';
 import axios from 'axios';
 import ContentCard from "../../molecules/ContentCard/ContentCard";
@@ -8,11 +8,12 @@ import '../../../styles/main.scss'
 const apiKey = import.meta.env.VITE_API_KEY;
 
 export default function MoviesList() {
+    const navigate = useNavigate();
     const [searchParams] = useSearchParams()
     const [page, setPage] = useState(1); 
     const [movies, setMovies] = useState([]);
     const [selectedOption, setSelectedOption] = useState(null);
-    const [genre, setGenre] = useState("")
+    const [genre, setGenre] = useState("");
     
     const options = [
         { value: 'popularity', label: 'Filmes mais populares' },
@@ -27,19 +28,22 @@ export default function MoviesList() {
         }
 
         if (selectedOption?.value === 'vote_average') {
+            navigate(`/filmes?page=${page}&${selectedOption?.value}`) 
             fetchTopRatedMovies(page)
         }
 
         if (selectedOption?.value === 'cinema') {
+            navigate(`/filmes?page=${page}&${selectedOption?.value}`) 
             fetchNowPlayingMovies(page)
         }
 
         if(selectedOption?.value === 'popularity'){
+            navigate(`/filmes?page=${page}&${selectedOption?.value}`) 
             fetchMovieData(page)
         }
 
         if(genre !== ""){
-            handleGenre()
+            handleGenre(page)
         } 
 
     }, [page, selectedOption, genre])
@@ -48,34 +52,46 @@ export default function MoviesList() {
     
     const handlePrevPage = () => {
         page > 1 ? setPage(page - 1) : null
+        navigate(`/filmes?page=${page - 1}&genre=${genre}`) 
     }
     
     const handleNextPage = () => {
         setPage(page + 1)
+        navigate(`/filmes?page=${page + 1}&genre=${genre}`)
+    }
+
+    function clearFilter(){
+        setGenre("")
+        navigate(`/filmes?page=${page}`) 
     }
     
-    async function handleGenre() {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/movie/popular?${apiKey}&language=pt-BR&page=${page}`)
+    async function handleGenre(page) {
+        const { data } = await axios.get(`https://api.themoviedb.org/3/movie/popular?${apiKey}&with_genres=${genre}&language=pt-BR&page=${page}`)
         const filteredMovies = data.results.filter(movie => movie.genre_ids.includes(genre))
         setMovies(filteredMovies)
+        navigate(`/filmes?page=${page}&genre=${genre}`) 
+
         return movies;
     }
 
     async function fetchMovieData(page) {
         const { data } = await axios.get(`https://api.themoviedb.org/3/movie/popular?${apiKey}&language=pt-BR&page=${page}`)
         setMovies(data?.results);
+        
         return movies;
     }    
 
     async function fetchTopRatedMovies(page) {
         const { data } = await axios.get(`https://api.themoviedb.org/3/movie/top_rated?${apiKey}&language=pt-BR&page=${page}`)
         setMovies(data?.results);
+
         return movies;
     }
 
     async function fetchNowPlayingMovies(page) {
         const { data } = await axios.get(`https://api.themoviedb.org/3/movie/now_playing?${apiKey}&language=pt-BR&page=${page}`)
         setMovies(data?.results);
+
         return movies;
     }
 
@@ -96,6 +112,7 @@ export default function MoviesList() {
                                 defaultValue={options[0]}
                                 onChange={setSelectedOption}
                                 options={options}
+                                className="custom-select__select"
                             />
                             <span className="custom-arrow"></span>
                         </div>
@@ -141,7 +158,7 @@ export default function MoviesList() {
                             onClick={() => setGenre(10752)}>Guerra</button>
                             <button className={genre === 37 ? "buttons__button--purple" : "buttons__button"} 
                             onClick={() => setGenre(37)}>Faroeste</button>
-                            <button className="buttons__button--purple" onClick={() => setGenre("")}>Limpar filtro</button>
+                            <button className="buttons__button--purple" onClick={() => clearFilter()}>Limpar filtro</button>
                     </div>
                 </aside>
                 

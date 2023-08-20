@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import Select from 'react-select';
 import axios from 'axios';
 import ContentCard from "../../molecules/ContentCard/ContentCard";
@@ -8,6 +8,7 @@ import '../../../styles/main.scss'
 const apiKey = import.meta.env.VITE_API_KEY;
 
 export default function TvShowsList() {
+    const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const [page, setPage] = useState(1);
     const [tvShow, setTvShow] = useState([]);
@@ -26,14 +27,17 @@ export default function TvShowsList() {
         }
 
         if (selectedOption?.value === 'airing_today') {
+            navigate(`/series?page=${page}&${selectedOption?.value}`) 
             fetchAiringToday(page)
         }
 
         if (selectedOption?.value === 'vote_average') {
+            navigate(`/series?page=${page}&${selectedOption?.value}`) 
             fetchTopRated(page)
         }
 
         if(selectedOption?.value === 'popularity'){
+            navigate(`/series?page=${page}&${selectedOption?.value}`) 
             fetchShowsData(page)
         }
 
@@ -45,33 +49,46 @@ export default function TvShowsList() {
 
     const handlePrevPage = () => {
         page > 1 ? setPage(page - 1) : null
+        navigate(`/series?page=${page - 1}&genre=${genre}`) 
     }
 
     const handleNextPage = () => {
         setPage(page + 1)
+        navigate(`/series?page=${page + 1}&genre=${genre}`)
+    }
+
+    function clearFilter(){
+        setGenre("")
+        navigate(`/series?page=${page}`) 
     }
 
     async function handleGenre() {
-        const { data } = await axios.get(`https://api.themoviedb.org/3/tv/popular?${apiKey}&language=pt-BR&page=${page}`)
+        const { data } = await axios.get(`https://api.themoviedb.org/3/tv/popular?${apiKey}&with_genres=${genre}&language=pt-BR&page=${page}`)
         const filteredShows = data.results.filter(show => show.genre_ids.includes(genre))
         setTvShow(filteredShows)
+        navigate(`/series?page=${page}&genre=${genre}`)  
+
+        return movies;
     }
 
     async function fetchShowsData(page) {
         const { data } = await axios.get(`https://api.themoviedb.org/3/tv/popular?${apiKey}&language=pt-BR&page=${page}`)
         setTvShow(data?.results);
+        
         return tvShow;
     }
 
     async function fetchAiringToday(page) {
         const { data } = await axios.get(`https://api.themoviedb.org/3/tv/airing_today?${apiKey}&language=pt-BR&page=${page}`)
         setTvShow(data?.results);
+  
         return tvShow;
     }
 
     async function fetchTopRated(page) {
         const { data } = await axios.get(`https://api.themoviedb.org/3/tv/top_rated?${apiKey}&language=pt-BR&page=${page}`)
         setTvShow(data?.results);
+
         return tvShow;
     }
 
@@ -91,6 +108,7 @@ export default function TvShowsList() {
                                 defaultValue={options[0]}
                                 onChange={setSelectedOption}
                                 options={options}
+                                className="custom-select__select"
                             />
                             <span className="custom-arrow"></span>
                         </div>
@@ -126,7 +144,7 @@ export default function TvShowsList() {
                             onClick={() => setGenre(10768)}>Guerra e Política</button>
                             <button className={genre === 37 ? "buttons__button--purple" : "buttons__button"}
                             onClick={() => setGenre(37)}>Faroeste</button>
-                            <button className="buttons__button--purple" onClick={() => setGenre("")}>Limpar filtro</button>
+                            <button className="buttons__button--purple" onClick={() => clearFilter()}>Limpar filtro</button>
                     </div>
                 </aside>
                 <div className="container__elements">

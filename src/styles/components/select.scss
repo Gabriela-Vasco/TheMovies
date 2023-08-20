@@ -2,6 +2,10 @@
 
 .custom-select{
   position: relative;
+
+  &__select {
+    width: 17rem;
+  }
 }
 
 .custom-arrow {
