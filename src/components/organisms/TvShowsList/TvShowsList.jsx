@@ -100,7 +100,7 @@ export default function TvShowsList() {
             </div>
 
             <div className="list__container">
-            <aside className="container__aside">
+                <aside className="container__aside">
                     <div className="aside__sort">
                         <h3 className="sort__title">Ordenar por</h3>
                         <div className="custom-select">

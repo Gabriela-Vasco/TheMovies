@@ -56,3 +56,11 @@
     }
   }
 }
+
+@include mediaQuery(550px){
+  .custom-select{
+    &__select {
+      width: 20rem;
+    }
+  }
+}

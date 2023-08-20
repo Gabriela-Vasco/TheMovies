@@ -120,6 +120,7 @@ export default function MoviesList() {
                     <div className="aside__filter">
                         <h3 className="filter__title">Filtrar por</h3>
                         <h4 className="filter__subtitle">Gêneros</h4>
+                        <div className="filter__buttons">
                             <button className={genre === 28 ? "buttons__button--purple" : "buttons__button"}
                             onClick={() => (setGenre(28))}>Ação</button>
                             <button className={genre === 12 ? "buttons__button--purple" : "buttons__button"}
@@ -159,6 +160,7 @@ export default function MoviesList() {
                             <button className={genre === 37 ? "buttons__button--purple" : "buttons__button"} 
                             onClick={() => setGenre(37)}>Faroeste</button>
                             <button className="buttons__button--purple" onClick={() => clearFilter()}>Limpar filtro</button>
+                        </div>
                     </div>
                 </aside>
                 

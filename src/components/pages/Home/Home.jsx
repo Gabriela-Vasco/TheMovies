@@ -38,7 +38,7 @@ export default function Home() {
     return (
         <main>
             {query ? ( 
-                <div className="movies">
+                <div>
                     <div className="title__container">
                         <h2 className="search-results__title">Resultados para: <mark className="search-results__query">{query}</mark></h2>
                     </div>
@@ -52,6 +52,7 @@ export default function Home() {
                                     to={`/filmes/${movie.id}`}
                                     state={{ search: `?${searchParams.toString()}` }}
                                     style={{ textDecoration: 'none', display: 'unset'}} 
+                                    
                                 >  
                                     <ContentCard 
                                         key={movie.id}
@@ -59,6 +60,7 @@ export default function Home() {
                                         Title={movie.title}
                                         Year={(movie.release_date).slice(0,4)}
                                         Rating={movie.vote_average.toFixed(1)}
+                                        className="link"
                                     />
                                 </Link>
                             ))}

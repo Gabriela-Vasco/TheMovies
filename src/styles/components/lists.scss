@@ -84,3 +84,38 @@
         }
     }
  }
+
+ @include mediaQuery(minmax 550px){
+        .list {
+            &__container{
+                grid-template-columns: 1fr;
+                grid-gap: 0;
+                width: 100%;
+                margin: 0;
+                padding: 0;
+                overflow: unset;
+
+                .container__elements {
+                    grid-template-columns: 1fr;
+                    grid-gap: 10em;
+                    padding: 5em;
+                    width: 100%;
+                }
+
+                .container__aside {
+                    padding: 0;
+                    width: 100%;
+                }
+            }
+        }
+
+        .home__container {
+            padding: 0;
+            .container__elements {
+                grid-template-columns: 100%;
+                grid-gap: 10em;
+                padding: 5em;
+                width: 100%; 
+            }
+        }
+}

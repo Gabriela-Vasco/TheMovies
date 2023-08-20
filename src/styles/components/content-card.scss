@@ -68,3 +68,9 @@
         padding: 0;
     }
  }
+
+ @include mediaQuery(550px){
+    .content-card{
+        scale: 1.2;
+    }
+ }
