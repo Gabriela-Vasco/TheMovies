@@ -167,6 +167,7 @@ export default function MoviesList() {
                 <div className="container__elements">
                     {movies?.map(movie => (
                     <Link key={movie.id}
+                        data-testid="movie"
                         to={`/filmes/${movie.id}`} 
                         state={{ search: `?${searchParams.toString()}` }}
                         style={{ textDecoration: 'none', display: 'unset'}}
@@ -184,9 +185,9 @@ export default function MoviesList() {
             </div>
 
             <div className="buttons">
-                <button onClick={handlePrevPage} className="buttons buttons__button">Página anterior</button>
+                <button onClick={handlePrevPage} className="buttons buttons__button" data-testid="prev-page-button">Página anterior</button>
                 <span style={{color: "white"}} className="buttons buttons__span">{page}</span>
-                <button onClick={handleNextPage}className="buttons buttons__button">Próxima página</button>
+                <button onClick={handleNextPage}className="buttons buttons__button" data-testid="next-page-button">Próxima página</button>
             </div>
         </div>
     )

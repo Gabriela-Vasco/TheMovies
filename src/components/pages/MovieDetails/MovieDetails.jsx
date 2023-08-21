@@ -18,6 +18,7 @@ export default function MovieDetails(){
         const { data } = await axios.get(`https://api.themoviedb.org/3/movie/${params.id}?${apiKey}&language=pt-BR`)
         return data;
     } 
+    console.log(movie)
 
     useEffect(() => {
         fetchMovieDetailsData()
@@ -38,7 +39,7 @@ export default function MovieDetails(){
             <div className="details">
                     <img className="details__img" src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`} alt={movie?.title}/> 
                     <div className="details__info">
-                        <h3 className="details__title">{`${movie?.title} (${formatedDate.split("/")[2]})`}</h3>
+                        <h3 className="details__title" data-testid="movie-title">{`${movie?.title} (${formatedDate.split("/")[2]})`}</h3>
 
                         <h4 className="details__tagline">{movie?.tagline}</h4>
 

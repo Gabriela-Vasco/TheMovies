@@ -22,11 +22,11 @@ useEffect(() => {
 
   return (
     <div className="itens-wrapper">
-      <div className="itens">
-        {movies.map((movie) => {
+      <div className="itens" data-testid="carousel">
+        {movies.map((movie, index) => {
            return (
-          <div className="item" >
-            <img src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}/>
+          <div className="item" data-testid={`img${index}`} key={index}>
+            <img src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`} alt={movie?.title}/>
           </div> );
         })}
       </div>

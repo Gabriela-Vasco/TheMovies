@@ -31,8 +31,6 @@ export default function TvShowDetails(){
         })
     }, [])
 
-    console.log(tvShow)
-
 
     return (
         <div>
@@ -40,7 +38,7 @@ export default function TvShowDetails(){
             <div className="details">
                     <img className="details__img" src={`https://image.tmdb.org/t/p/w500${tvShow?.poster_path}`} alt={tvShow?.title}/> 
                     <div className="details__info">
-                        <h3 className="details__title">{`${tvShow?.name} (${formatedDate.split("/")[2]})`}</h3>
+                        <h3 className="details__title" data-testid="tvshow-title">{`${tvShow?.name} (${formatedDate.split("/")[2]})`}</h3>
 
                         <h4 className="details__tagline">{tvShow?.tagline}</h4>
 
