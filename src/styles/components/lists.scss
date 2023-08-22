@@ -11,10 +11,9 @@
 }
 
 .list {
-    &__container{
+    &__container {
         display: grid;
         grid-template-columns: 25% 75%;
-       
 
         .container__elements {
             display: grid;
@@ -31,41 +30,38 @@
             .aside__sort {
                 @include display-center(column);
             }
+
             .aside__filter {
                 @include display-center(column);
-    
+
                 .filter__title {
                     margin: 2em 0 0;
                 }
 
-                .filter__buttons{
+                .filter__buttons {
                     @include display-center(column);
                     width: 100%;
-                }
-    
-                .buttons__button{
-                    margin-top: 1em;
 
+                    .buttons__button {
+                        margin: 1em 0 0 0;
 
-                    &--active {
-                        background-color: $secondary-color;
-                        color: $base-color-light;
+                        &--active {
+                            background-color: $secondary-color;
+                            color: $base-color-light;
+                        }
                     }
                 }
             }
         }
     }
-}
 
-@include mediaQuery(768px){
-    .list {
-        &__container{
+    @include mediaQuery(768px) {
+        &__container {
             grid-template-columns: 15% 85%;
             margin: 0;
             padding: 0;
             grid-gap: 6em;
             width: 40%;
-            
 
             .container__elements {
                 grid-template-columns: 20% 20%;
@@ -76,51 +72,50 @@
             .container__aside {
                 padding-left: 8em;
                 width: 100%;
-
             }
         }
-        
-    }
 
-    .home__container {
-        padding-left: 3em;
-        .container__elements {
-           justify-content: center;
+        .home__container {
+            padding-left: 3em;
 
+            .container__elements {
+                justify-content: center;
+            }
         }
     }
- }
 
- @include mediaQuery(minmax 650px){
-        .list {
-            &__container{
+    @include mediaQuery(650px) {
+        &__container {
+            grid-template-columns: 100%;
+            row-gap: 5em;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+            .container__elements {
                 grid-template-columns: 100%;
-                grid-gap: 0;
+                grid-gap: 10em;
+                padding-left: auto;
                 width: 100%;
-                margin: 0;
+                align-items: center; 
+                padding-top: 2rem;
+            }
+
+            .container__aside {
                 padding: 0;
-
-                .container__elements {
-                    display: flex;
-                    flex-direction: column;
-                    padding: 5em 0;
-                    width: 100%;
-                }
-
-                .container__aside {
-                    padding: 0;
-                    width: 100%;
-                }
+                width: 100%;
             }
         }
 
         .home__container {
             padding: 0;
+
             .container__elements {
                 grid-template-columns: 100%;
                 grid-gap: 10em;
                 padding: 5em;
-                width: 100%; 
+                width: 100%;
             }
         }
+    }
 }

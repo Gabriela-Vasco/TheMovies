@@ -167,6 +167,7 @@ export default function MoviesList() {
                 <div className="container__elements">
                     {movies?.map(movie => (
                     <Link key={movie.id}
+                        className="movie__link"
                         data-testid="movie"
                         to={`/filmes/${movie.id}`} 
                         state={{ search: `?${searchParams.toString()}` }}

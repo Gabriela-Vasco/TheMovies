@@ -116,6 +116,7 @@ export default function TvShowsList() {
                     <div className="aside__filter">
                         <h3 className="filter__title">Filtrar por</h3>
                         <h4 className="filter__subtitle">Gêneros</h4>
+                        <div className="filter__buttons">
                             <button className={genre === 10759 ? "buttons__button--purple" : "buttons__button"} 
                             onClick={() => setGenre(10759)} data-testid="genre-button">Ação e Aventura</button>
                             <button className={genre === 10762 ? "buttons__button--purple" : "buttons__button"} 
@@ -145,6 +146,7 @@ export default function TvShowsList() {
                             <button className={genre === 37 ? "buttons__button--purple" : "buttons__button"}
                             onClick={() => setGenre(37)}>Faroeste</button>
                             <button className="buttons__button--purple" onClick={() => clearFilter()}>Limpar filtro</button>
+                        </div>
                     </div>
                 </aside>
                 <div className="container__elements">
