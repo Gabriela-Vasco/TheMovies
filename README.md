@@ -1,7 +1,7 @@
 # The Movies:
 
 Este projeto foi desenvolvido utilizando React (Vite), consumindo a API de filmes e séries do 
-<a href="https://developer.themoviedb.org/reference/intro/getting-started> TMDB </a> com axios, testes unitários com Vitest e estilização com Sass.
+<a href="https://developer.themoviedb.org/reference/intro/getting-started">TMDB</a> com axios, testes unitários com Vitest e estilização com Sass.
 
 Demo: [https://casa-verde-xi.vercel.app/](https://the-movies-mu.vercel.app/)
 
