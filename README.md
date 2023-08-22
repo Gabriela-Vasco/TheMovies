@@ -3,7 +3,7 @@
 Este projeto foi desenvolvido utilizando React (Vite), consumindo a API de filmes e séries do 
 <a href="https://developer.themoviedb.org/reference/intro/getting-started">TMDB</a> com axios, testes unitários com Vitest e estilização com Sass.
 
-Demo: [https://casa-verde-xi.vercel.app/](https://the-movies-mu.vercel.app/)
+Demo: [(https://the-movies-mu.vercel.app/)](https://the-movies-mu.vercel.app/)
 
 ## Requisitos
 - Node.js 
@@ -25,9 +25,4 @@ Essa aplicação foi desenvolvida com o objetivo de fazer chamadas à uma API ex
 É possível pesquisar por um filme ou série na barra de pesquisa, a busca retorna uma lista de filmes e séries que contenham no título a palavra-chave pesquisada. Além disso, é possível acessar uma lista de filmes ou séries e ordená-los por popularidade, data de lançamento, etc, e também filtrar por gêneros. Ao clicar no card de um filme ou série, o usuário é redirecionado para uma página contendo mais detalhes. 
 
 ##
-<video width="500" controls="controls" autoplay="autoplay">
-    <source src="The Movies.webm" type="video/webm">
-  <object data="" width="500">
-    <embed width="500" src="The Movies.webm">
-  </object>
-</video>
+<img src="https://github.com/Gabriela-Vasco/TheMovies/blob/master/src/assets/themovies.PNG?raw=true"/>
