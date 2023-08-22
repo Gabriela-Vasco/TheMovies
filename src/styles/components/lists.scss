@@ -37,9 +37,15 @@
                 .filter__title {
                     margin: 2em 0 0;
                 }
+
+                .filter__buttons{
+                    @include display-center(column);
+                    width: 100%;
+                }
     
                 .buttons__button{
                     margin-top: 1em;
+
 
                     &--active {
                         background-color: $secondary-color;
@@ -85,20 +91,19 @@
     }
  }
 
- @include mediaQuery(minmax 550px){
+ @include mediaQuery(minmax 650px){
         .list {
             &__container{
-                grid-template-columns: 1fr;
+                grid-template-columns: 100%;
                 grid-gap: 0;
                 width: 100%;
                 margin: 0;
                 padding: 0;
-                overflow: unset;
 
                 .container__elements {
-                    grid-template-columns: 1fr;
-                    grid-gap: 10em;
-                    padding: 5em;
+                    display: flex;
+                    flex-direction: column;
+                    padding: 5em 0;
                     width: 100%;
                 }
 
