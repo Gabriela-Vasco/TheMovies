@@ -31,7 +31,6 @@ export default function Home() {
     useEffect(() => {
         getSearchedMovies()
         getSearchedShow()
-        
     }, [query])
 
 

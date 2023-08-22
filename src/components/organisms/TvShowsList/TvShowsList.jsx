@@ -117,7 +117,7 @@ export default function TvShowsList() {
                         <h3 className="filter__title">Filtrar por</h3>
                         <h4 className="filter__subtitle">Gêneros</h4>
                             <button className={genre === 10759 ? "buttons__button--purple" : "buttons__button"} 
-                            onClick={() => setGenre(10759)}>Ação e Aventura</button>
+                            onClick={() => setGenre(10759)} data-testid="genre-button">Ação e Aventura</button>
                             <button className={genre === 10762 ? "buttons__button--purple" : "buttons__button"} 
                             onClick={() => setGenre(10762)}>Infantil</button>
                             <button className={genre === 16 ? "buttons__button--purple" : "buttons__button"} 
@@ -167,9 +167,9 @@ export default function TvShowsList() {
             </div>
             
             <div className="buttons">
-                <button onClick={handlePrevPage} className="buttons buttons__button">Página anterior</button>
+                <button onClick={handlePrevPage} className="buttons buttons__button" data-testid="prev-page-button">Página anterior</button>
                 <span style={{color: "white"}} className="buttons buttons__span">{page}</span>
-                <button onClick={handleNextPage}className="buttons buttons__button">Próxima página</button>
+                <button onClick={handleNextPage}className="buttons buttons__button" data-testid="next-page-button">Próxima página</button>
             </div>
 
         </div>

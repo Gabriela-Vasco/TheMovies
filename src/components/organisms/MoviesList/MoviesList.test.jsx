@@ -91,8 +91,6 @@ describe("MoviesList", () => {
   ) 
 
   beforeAll(() => server.listen());
-  afterEach(() => server.resetHandlers());
-  afterAll(() => server.close());
   
   it("should render correctly", () => {
     render(
@@ -145,16 +143,16 @@ describe("MoviesList", () => {
     expect(page).toBeInTheDocument();
   });
 
-  it.only("should call fetchTopRatedMovies when top rated option is selected", async () => {
-    const mockFetchTopRatedMovies = vi.fn();
+  it("should change genre when button is clicked", async () => {
     render(
       <BrowserRouter>
-        <MoviesList fetchTopRatedMovies={mockFetchTopRatedMovies} setSelectedOption={'vote_average'}/>
+        <MoviesList/>
       </BrowserRouter>
     )
-    await waitFor(() => { 
-      const topRatedOption = screen.getByText("Melhor avaliados");
-      expect(topRatedOption).toBeInTheDocument();
-    });
+
+    const button = screen.getByTestId("genre-button");
+    fireEvent.click(button);
+    const btn = screen.getByRole("button", {name: "Ação"});
+    expect(btn).toHaveClass("buttons__button--purple");
   });
 });

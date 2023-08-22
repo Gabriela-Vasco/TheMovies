@@ -122,7 +122,7 @@ export default function MoviesList() {
                         <h4 className="filter__subtitle">Gêneros</h4>
                         <div className="filter__buttons">
                             <button className={genre === 28 ? "buttons__button--purple" : "buttons__button"}
-                            onClick={() => (setGenre(28))}>Ação</button>
+                            onClick={() => (setGenre(28))} data-testid="genre-button">Ação</button>
                             <button className={genre === 12 ? "buttons__button--purple" : "buttons__button"}
                             onClick={() => setGenre(12)}>Aventura</button>
                             <button className={genre === 16 ? "buttons__button--purple" : "buttons__button"}
